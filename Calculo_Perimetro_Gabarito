@@ -1,0 +1,50 @@
+//Calcular_Perimetro
+
+#include <stdio.h>
+#include <math.h>
+
+float calcDist2Ptos(float x1, float y1, float x2, float y2){
+    float dist;
+    float interno= pow(x1-x2,2)+pow(y1-y2,2);
+    dist = sqrt(interno );
+    return dist;
+}
+float calcPerim(float xA, float yA,float xB, float yB,float xC, float yC){ 
+    float perim;
+    float ladoAB,ladoBC,ladoAC;
+    ladoAB=calcDist2Ptos(xA,yA,xB,yB);
+    ladoBC=calcDist2Ptos(xC,yC,xB,yB);
+    ladoAC=calcDist2Ptos(xA,yA,xC,yC);
+    
+    perim=ladoAB+ladoBC+ladoAC;
+    
+    return perim;
+}
+void moldura(void){
+    printf("\n=======================");
+    printf("\n=======================\n");
+    return;
+}
+void exibe_resposta(float perim){
+    moldura();
+    printf("  Perímetro: %.2f",perim);
+    moldura();
+    return;
+}
+int main(void){  
+    float xA, yA, xB, yB, xC, yC, perim;
+  /* Captura dados */
+  xA=0;
+  yA=0;
+  xB=0;
+  yB=1;
+  xC=1;
+  yC=0;
+  
+  /* Calcula Perímetro */
+  perim=calcPerim(xA,yA,xB,yB,xC,yC);
+  /* Exibe Respostas */
+  exibe_resposta(perim);
+
+  return 0;	
+}
